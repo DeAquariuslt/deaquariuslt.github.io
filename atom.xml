@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Debug Note</title>
+  <subtitle>Debug Note by Aquariuslt</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://debug.aquariuslt.com/"/>
+  <updated>2016-04-02T09:48:46.000Z</updated>
+  <id>http://debug.aquariuslt.com/</id>
+  
+  <author>
+    <name>Aquariuslt</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于document.createElement的图片加载问题</title>
+    <link href="http://debug.aquariuslt.com/2016/04/02/javascript-document-create-element-xhr/"/>
+    <id>http://debug.aquariuslt.com/2016/04/02/javascript-document-create-element-xhr/</id>
+    <published>2016-04-02T09:14:39.000Z</published>
+    <updated>2016-04-02T09:48:46.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;最近在更新网站首页的时候,在实现文章摘要结果的时候,采用了不太正当的方法导致加载时间过长.&lt;/p&gt;
+&lt;p&gt;在获取文章Summary的时候,原本Summary的样式应该是这样子的&lt;br&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;entry&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;![CDATA[ Angular Material md-button 不全部大写 ]]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;id&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;id&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;published&lt;/span&gt;&amp;gt;&lt;/span&gt;2016-03-20T07:33:50.000Z&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;published&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;updated&lt;/span&gt;&amp;gt;&lt;/span&gt;2016-03-22T05:42:44.939Z&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;updated&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;html&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;content&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;summary&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;html&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;![CDATA[&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;h2 id=&quot;BackGround&quot;&amp;gt;&amp;lt;a href=&quot;#BackGround&quot; class=&quot;headerlink&quot; title=&quot;BackGround&quot;&amp;gt;&amp;lt;/a&amp;gt;BackGround&amp;lt;/h2&amp;gt;&amp;lt;p&amp;gt;刚刚接触&amp;lt;code&amp;gt;Angular-Material&amp;lt;/code&amp;gt;,发现其&amp;lt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;summary&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;entry&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在获取Summary的时候,由于summary的片段是不完整的html标签字符串,根本没有终止符,无法合理的转化成摘要文字.&lt;/p&gt;
+&lt;p&gt;于是我就直接将content里面的全文html字符串来截取摘要内容.&lt;br&gt;如何合理的截取到html字符串里面的innerText呢?&lt;br&gt;一开始就使用了&lt;code&gt;document.createElement()&lt;/code&gt;方法:&lt;br&gt;通过将html字符串来创建一连串的dom element,然后用innerText来获取去除html标签之后的内容.&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;handleArticleSummary&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;articleSummary&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; div = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    div.innerHTML = articleSummary.content._;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    articleSummary.content.text = div.innerText;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是这样就会导致 html 里面的 img 标签和以前涉及网络加载的标签,会在随着&lt;code&gt;createElement()&lt;/code&gt;后的赋值方法,去获取实际上的img内容.&lt;br&gt;加载图片或者其他脚本.这样导致第一次加载的时候耗时过长.&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;目前还没有正统的解决办法,我是使用正则表达式匹配img标签,将img标签过滤掉.&lt;br&gt;来达到不必加载的目的.&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   * Get innerText from html body.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   * When using document.createElement(htmlString),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   * which htmlString contains image link, will load image from its src.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   * it will cause much network time,so replace the image link.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   * */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;handleArticleSummary&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;articleSummary&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; imageLinkRegex = &lt;span class=&quot;regexp&quot;&gt;/&amp;lt;img\s[^&amp;gt;]*?src\s*=\s*[&#39;&quot;]([^&#39;&quot;]*?)[&#39;&quot;][^&amp;gt;]*?&amp;gt;/ig&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; originalHtmlString = articleSummary.content._;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; convertedHtmlString = originalHtmlString.replace(imageLinkRegex,&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; div = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    div.innerHTML = convertedHtmlString;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    articleSummary.content.text = div.innerText;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;最近在更新网站首页的时候,在实现文章摘要结果的时候,采用了不太正当的方法导致
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://debug.aquariuslt.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IntelliJ IDEA 不能正常解析Node.js Core Modules 属性方法的解决方案</title>
+    <link href="http://debug.aquariuslt.com/2016/03/22/intellij-idea-cannot-resolve-nodejs-core-modules/"/>
+    <id>http://debug.aquariuslt.com/2016/03/22/intellij-idea-cannot-resolve-nodejs-core-modules/</id>
+    <published>2016-03-22T05:45:25.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;&lt;code&gt;IntelliJ IDEA&lt;/code&gt;更新到2016.01之后,在使用&lt;code&gt;Node.js&lt;/code&gt;的原生API的时候,遇到了了一个问题:&lt;br&gt;不能够auto-complete出对应的属性方法:&lt;br&gt;比如以下的代码:&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; filePath = &lt;span class=&quot;string&quot;&gt;&#39;/home/aquariuslt/Downloads/avator.png&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;path&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;path.basename(filePath);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;正常情况下是能够根据&lt;code&gt;Node.js&lt;/code&gt;的API预定义文件&lt;code&gt;core_moudles&lt;/code&gt;对方法名进行自动补全.&lt;br&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1c4XbMXXXXXX2aXXXXXXXXXXX.png&quot; alt=&quot;正常情况&quot;&gt;&lt;/p&gt;
+&lt;p&gt;更新之后居然不能自动提示了&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions&quot;&gt;&lt;/a&gt;Solutions&lt;/h2&gt;&lt;p&gt;有两个解决方案,分别对应不同的情况.&lt;br&gt;两个都试过了,分别在&lt;code&gt;Windows&lt;/code&gt;,&lt;code&gt;Linux&lt;/code&gt;下完成&lt;/p&gt;
+&lt;h3 id=&quot;重新Enable一次Node-js-Framework-Support&quot;&gt;&lt;a href=&quot;#重新Enable一次Node-js-Framework-Support&quot; class=&quot;headerlink&quot; title=&quot;重新Enable一次Node.js Framework Support&quot;&gt;&lt;/a&gt;重新Enable一次Node.js Framework Support&lt;/h3&gt;&lt;p&gt;&lt;code&gt;File&lt;/code&gt;-&amp;gt;&lt;code&gt;Settings&lt;/code&gt;-&amp;gt;&lt;code&gt;Languages &amp;amp; Frameworks&lt;/code&gt;&lt;br&gt;先disable掉Node.js&lt;br&gt;再enable.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1gHQ_LVXXXXXrapXXXXXXXXXX.png&quot; alt=&quot;Languages &amp;amp; Frameworks Settings&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;如果安装过不同版本的Node-js-删除不同版本的IDEA-Node-js-定义文件&quot;&gt;&lt;a href=&quot;#如果安装过不同版本的Node-js-删除不同版本的IDEA-Node-js-定义文件&quot; class=&quot;headerlink&quot; title=&quot;如果安装过不同版本的Node.js,删除不同版本的IDEA Node.js 定义文件&quot;&gt;&lt;/a&gt;如果安装过不同版本的Node.js,删除不同版本的IDEA Node.js 定义文件&lt;/h3&gt;&lt;p&gt;在User的个人目录&lt;code&gt;~&lt;/code&gt;下&lt;br&gt;可能存放了不同IDEA版本,不同Node.js版本的配置文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ls -al | grep Idea&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;C:\Users\CUIJA&amp;gt;ls -al | grep Idea&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drwxr-xr-x 1 CUIJA 1049089       0 Mar 21 18:38 .IntelliJIdea15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drwxr-xr-x 1 CUIJA 1049089       0 Mar 21 18:42 .IntelliJIdea2016.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;先删除旧的IDEA 版本的config文件夹.&lt;br&gt;再进入当前使用的IDEA版本的config文件夹&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$cd .IntelliJIdea2016.1\config\javascript\nodejs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;total 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drwxr-xr-x 1 CUIJA 1049089 0 Mar 21 18:47 .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drwxr-xr-x 1 CUIJA 1049089 0 Mar 21 18:47 ..&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drwxr-xr-x 1 CUIJA 1049089 0 Mar 21 18:47 4.3.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drwxr-xr-x 1 CUIJA 1049089 0 Mar 21 18:47 4.4.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;删掉那个比较旧的文件夹 即可.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;&lt;code&gt;IntelliJ IDEA&lt;/code&gt;更新到2016.01之后
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="http://debug.aquariuslt.com/tags/Node-js/"/>
+    
+      <category term="IntelliJ IDEA" scheme="http://debug.aquariuslt.com/tags/IntelliJ-IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Angular Material md-button 不全部大写</title>
+    <link href="http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/"/>
+    <id>http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/</id>
+    <published>2016-03-20T07:33:50.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;BackGround&quot;&gt;&lt;a href=&quot;#BackGround&quot; class=&quot;headerlink&quot; title=&quot;BackGround&quot;&gt;&lt;/a&gt;BackGround&lt;/h2&gt;&lt;p&gt;刚刚接触&lt;code&gt;Angular-Material&lt;/code&gt;,发现其&lt;code&gt;md-button&lt;/code&gt;指令是内文本全大写&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;在CSS里面添加&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/** For md-button lowercase using lowercase */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-class&quot;&gt;.md-button&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;text-transform&lt;/span&gt;: capitalize &lt;span class=&quot;meta&quot;&gt;!important&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1j2w_LVXXXXXWXpXXXXXXXXXX.png&quot; alt=&quot;After Update CSS&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;BackGround&quot;&gt;&lt;a href=&quot;#BackGround&quot; class=&quot;headerlink&quot; title=&quot;BackGround&quot;&gt;&lt;/a&gt;BackGround&lt;/h2&gt;&lt;p&gt;刚刚接触&lt;code&gt;Angular-Material&lt;/code&gt;,发现其&lt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://debug.aquariuslt.com/tags/JavaScript/"/>
+    
+      <category term="CSS" scheme="http://debug.aquariuslt.com/tags/CSS/"/>
+    
+      <category term="AngularJS" scheme="http://debug.aquariuslt.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac OS X下替换IDEA15自带的JDK</title>
+    <link href="http://debug.aquariuslt.com/2016/01/15/mac-idea-15-remove-bundled-jdk/"/>
+    <id>http://debug.aquariuslt.com/2016/01/15/mac-idea-15-remove-bundled-jdk/</id>
+    <published>2016-01-15T15:19:44.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;由于最近一直在研究不同版本的JDK/JVM在不同操作系统下的字体渲染.(强迫症)&lt;br&gt;发现&lt;code&gt;Mac&lt;/code&gt;下的&lt;code&gt;IDEA&lt;/code&gt;在更新到15之后,字体居然变粗了.&lt;br&gt;从个人审美的角度看.觉得渲染不是很好看.&lt;br&gt;通过菜单的&lt;code&gt;About IntelliJ IDEA&lt;/code&gt;查看.&lt;br&gt;发现启动运行&lt;code&gt;IDEA&lt;/code&gt;的居然是&lt;code&gt;OpenJDK&lt;/code&gt;.&lt;br&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1H_y2LpXXXXXWXXXXXXXXXXXX.png&quot; alt=&quot;OpenJDK启动IDEA&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;解决办法相当简单.&lt;br&gt;这是因为&lt;code&gt;IDEA&lt;/code&gt;的Mac版本,在版本15之后在包内容下自带了个JDK/JRE.&lt;br&gt;从启动的脚本来说,如果有内置的JDK/JRE,则会调用自带的JDK.&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;应用程序&lt;/code&gt;中右键&lt;code&gt;显示包内容&lt;/code&gt;,进入&lt;code&gt;Contents&lt;/code&gt;文件夹,删除&lt;code&gt;jre&lt;/code&gt;文件夹即可.&lt;br&gt;删除即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1xn1VLpXXXXcpXXXXXXXXXXXX.png&quot; alt=&quot;OracleJDK启动IDEA&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;由于最近一直在研究不同版本的JDK/JVM在不同操作系统下的字体渲染.(强迫
+    
+    </summary>
+    
+    
+      <category term="IntelliJ IDEA" scheme="http://debug.aquariuslt.com/tags/IntelliJ-IDEA/"/>
+    
+      <category term="Java" scheme="http://debug.aquariuslt.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js oracledb &quot;ORA-21561 - OID generation failed&quot; 解决方案</title>
+    <link href="http://debug.aquariuslt.com/2016/01/12/nodejs-oracledb-ora-21561-solution/"/>
+    <id>http://debug.aquariuslt.com/2016/01/12/nodejs-oracledb-ora-21561-solution/</id>
+    <published>2016-01-12T04:55:31.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;千辛万苦在虚拟机的&lt;code&gt;CentOS 6&lt;/code&gt;下编译好&lt;code&gt;oracledb&lt;/code&gt;,运行时报错&lt;br&gt;“ORA-21561 - OID generation failed”&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;原因是虚拟机下的&lt;code&gt;CentOS&lt;/code&gt;连接到oracle服务器的时候,本地没有有效的连接名称(机器名)&lt;br&gt;&lt;a href=&quot;http://chaos667.tumblr.com/post/20006357466/ora-21561-and-oracle-instant-client-112&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Origin Post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要在&lt;code&gt;hosts&lt;/code&gt;列表中添加本地的机器名.&lt;br&gt;假设我local机器名为&lt;code&gt;centos-vm&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo gedit /etc/hosts   (vi也行)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查找&lt;code&gt;127.0.0.1&lt;/code&gt; 在对应的hostname后面添加&lt;code&gt;centos-vm&lt;/code&gt;,即本机器名&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB17d0.LpXXXXXpXpXXXXXXXXXX.png&quot; alt=&quot;修改CentOS hosts文件&quot;&gt;&lt;/p&gt;
+&lt;p&gt;重启即可.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;千辛万苦在虚拟机的&lt;code&gt;CentOS 6&lt;/code&gt;下编译好&lt;cod
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="http://debug.aquariuslt.com/tags/Node-js/"/>
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RHEL(CentOS)6环境下安装node-oracledb</title>
+    <link href="http://debug.aquariuslt.com/2016/01/11/nodejs-oracledb-install-on-rhel-6/"/>
+    <id>http://debug.aquariuslt.com/2016/01/11/nodejs-oracledb-install-on-rhel-6/</id>
+    <published>2016-01-11T15:53:07.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;最近准备升级一下PROD服务器上的&lt;code&gt;node-oracledb&lt;/code&gt;版本.&lt;br&gt;但是遇到一个很奇怪的现象,就是我本地无法构建出服务器上可用的&lt;code&gt;oracledb&lt;/code&gt;.&lt;br&gt;(因为部署方式是打包部署而不是从&lt;code&gt;git&lt;/code&gt;拉代码部署)&lt;/p&gt;
+&lt;p&gt;一开始以为是&lt;code&gt;C++运行库&lt;/code&gt;的原因.&lt;br&gt;因为又仔细读了一遍&lt;code&gt;node-oracledb&lt;/code&gt;的官方安装文档,发现&lt;code&gt;oracledb&lt;/code&gt;在编译的时候,只支持支持&lt;code&gt;C++11&lt;/code&gt;的编译器.&lt;/p&gt;
+&lt;p&gt;立马查看本地环境的&lt;code&gt;gcc&lt;/code&gt;版本与运行库版本&lt;code&gt;glibc&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc -v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ldd &lt;span class=&quot;comment&quot;&gt;--version&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;发现本地&lt;code&gt;CentOS 6.6&lt;/code&gt;版本自带的&lt;code&gt;gcc&lt;/code&gt;版本是4.4,&lt;code&gt;glibc&lt;/code&gt;版本是2.12&lt;br&gt;但是支持编译和运行C++11新特性的&lt;code&gt;gcc&lt;/code&gt;版本是4.7+,&lt;code&gt;glibc&lt;/code&gt;版本是2.14+&lt;br&gt;这.版本都不一样怎么玩.&lt;/p&gt;
+&lt;h2 id=&quot;RootCause&quot;&gt;&lt;a href=&quot;#RootCause&quot; class=&quot;headerlink&quot; title=&quot;RootCause&quot;&gt;&lt;/a&gt;RootCause&lt;/h2&gt;&lt;p&gt;马上比较了一下 本地构建&lt;code&gt;oracledb&lt;/code&gt;与服务器的各种版本&lt;br&gt;发现相关的版本信息如下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;服务器&lt;br&gt;OS:RedHat Enterprise Linux 6.6&lt;br&gt;gcc Version:4.4 (Red Hat)&lt;br&gt;glibc Version:2.12&lt;br&gt;node Version:v0.10.38&lt;br&gt;npm Version:1.4.28(npm版本应该不会影响构建,预防万一还是提及一下)&lt;br&gt;node-gyp Version:不明.因为没权限调用该命令.&lt;br&gt;oracle instantclient Version:11.2&lt;/p&gt;
+&lt;p&gt;本地环境&lt;br&gt;OS:CentOS 6.7 x64&lt;br&gt;gcc Version:4.4 (Red Hat)&lt;br&gt;glibc Version:2.12&lt;br&gt;node Version:v4.2.4&lt;br&gt;npm Version:2.14.8&lt;br&gt;node-gyp Version:3.2.1&lt;br&gt;oracle instantclient Version:11.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;思前想后,想想也不知道&lt;code&gt;node.js&lt;/code&gt;本身版本到底会对&lt;code&gt;oracledb&lt;/code&gt;的构建有什么影响.&lt;br&gt;毕竟&lt;code&gt;oracledb&lt;/code&gt;官方对构建时的&lt;code&gt;C++11&lt;/code&gt;编译支持的要求先入为主了&lt;/p&gt;
+&lt;p&gt;最后还是决定先切换一下&lt;code&gt;node.js&lt;/code&gt;版本,结果问题顺利解决&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$npm&lt;/span&gt; install n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$n&lt;/span&gt; v0.10.38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$npm&lt;/span&gt; install oracledb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;构建成功.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;最近准备升级一下PROD服务器上的&lt;code&gt;node-oracledb&lt;/
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="http://debug.aquariuslt.com/tags/Node-js/"/>
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux &quot;libxx cannot open shared object file no such file or directory&quot;解决方案</title>
+    <link href="http://debug.aquariuslt.com/2016/01/03/ubuntu-ldd-lib-linking-solutions/"/>
+    <id>http://debug.aquariuslt.com/2016/01/03/ubuntu-ldd-lib-linking-solutions/</id>
+    <published>2016-01-03T08:41:03.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;This is a patch/enhancement about &lt;a href=&quot;http://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-object-file/&quot;&gt;http://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-object-file/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;I was install Ubuntu 15.10 for tasting the new version of Ubuntu.&lt;br&gt;After setting up MEAN development and run node.js program.&lt;/p&gt;
+&lt;p&gt;Node.js throw error belows:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;libaio.so cannot open shared object file no such file or directory&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I try to find this in oracle instant client directory, but there is no file named this in it.&lt;br&gt;Then I power on the &lt;code&gt;Ubuntu 14.04&lt;/code&gt; and type command&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;locate&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;libaio&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.so&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;It can be found in &lt;code&gt;/lib/x86_64_linux_gnu&lt;/code&gt;&lt;br&gt;But not found in &lt;code&gt;UBuntu 15.10&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;RootCause&quot;&gt;&lt;a href=&quot;#RootCause&quot; class=&quot;headerlink&quot; title=&quot;RootCause&quot;&gt;&lt;/a&gt;RootCause&lt;/h2&gt;&lt;p&gt;That’s because &lt;code&gt;Ubuntu 15.10&lt;/code&gt; use different gnu/g++ version from &lt;code&gt;Ubuntu 14.04&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;You can follow these steps to locate the root cause and solve it.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Using command &lt;code&gt;locate {filename}&lt;/code&gt; to search .so file.&lt;br&gt;If result is empty, you can try below;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Install the *.so file.&lt;br&gt;Using command&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt; install &amp;#123;filename &lt;span class=&quot;keyword&quot;&gt;without&lt;/span&gt; .so&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;p&gt;If you found there is the same filename prefix but with version number,&lt;br&gt;for example,the error tips &lt;code&gt;libaio.so&lt;/code&gt; not found, but you found there is  a file named &lt;code&gt;libaio.so.11.2&lt;/code&gt; in &lt;code&gt;/lib/x86_64_linux_gnu&lt;/code&gt;&lt;br&gt;you can make a softlink&lt;br&gt;using command&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;libaio&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.so&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.11&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.2&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;libaio&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.so&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;updatedb&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;This is a patch/enhancement about &lt;a href=&quot;http://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-objec
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
+    
+      <category term="Ubuntu" scheme="http://debug.aquariuslt.com/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 虚拟机Ubuntu扩容</title>
+    <link href="http://debug.aquariuslt.com/2015/12/30/vmware-ubuntu-expand-disk-space-using-gparted/"/>
+    <id>http://debug.aquariuslt.com/2015/12/30/vmware-ubuntu-expand-disk-space-using-gparted/</id>
+    <published>2015-12-30T15:40:11.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;一时大意,本以为&lt;code&gt;vmware&lt;/code&gt;下的虚拟机可以随便调整磁盘容量,于是在给有1T SSD的服务器建立&lt;code&gt;Ubuntu&lt;/code&gt;虚拟机镜像的时候很傻比的只分了40G的最大容量.&lt;br&gt;没想到开发环境用的DB日渐增长,磁盘空间竟然很快消耗殆尽.&lt;/p&gt;
+&lt;p&gt;于是赶紧给通过&lt;code&gt;vmware&lt;/code&gt;的虚拟机硬件设置给将最大磁盘空间升级到120G(依然很小气- -)&lt;/p&gt;
+&lt;p&gt;突然想起 Linux 的磁盘挂载方式 不大一样.上网找了一些类似的解决方案之后,都发现不太好记.&lt;/p&gt;
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;通过&lt;code&gt;Ubuntu&lt;/code&gt;下的一个GUI软件,叫&lt;code&gt;gparted&lt;/code&gt;,能够图形化的类似Windows下的磁盘管理工具一样,进行磁盘空间的重新划分与转移.&lt;/p&gt;
+&lt;p&gt;在本次使用&lt;code&gt;gparted&lt;/code&gt;进行分区转移,大概分成以下几步:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;安装并运行&lt;code&gt;gparted&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;删除&lt;code&gt;Ubuntu&lt;/code&gt;下原本的extend分区及&lt;code&gt;linux swap&lt;/code&gt;空间&lt;/li&gt;
+&lt;li&gt;对原有磁盘空间进行扩容&lt;/li&gt;
+&lt;li&gt;新建extend分区,建立&lt;code&gt;linux swap&lt;/code&gt;空间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;安装并运行gparted&quot;&gt;&lt;a href=&quot;#安装并运行gparted&quot; class=&quot;headerlink&quot; title=&quot;安装并运行gparted&quot;&gt;&lt;/a&gt;安装并运行&lt;code&gt;gparted&lt;/code&gt;&lt;/h3&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install gparted&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gparted&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1s16KLXXXXXXVXpXXXXXXXXXX.png&quot; alt=&quot;gparted界面&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;删除Ubuntu下原本的extend分区及linux-swap空间&quot;&gt;&lt;a href=&quot;#删除Ubuntu下原本的extend分区及linux-swap空间&quot; class=&quot;headerlink&quot; title=&quot;删除Ubuntu下原本的extend分区及linux swap空间&quot;&gt;&lt;/a&gt;删除&lt;code&gt;Ubuntu&lt;/code&gt;下原本的extend分区及&lt;code&gt;linux swap&lt;/code&gt;空间&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;这里提及一下之前有的错误做法&lt;br&gt;我一开始的做法是,直接给未格式化的空间,格式化之后,作为一个新的磁盘挂载在系统中&lt;br&gt;这样,需要对 /media/${username}/新空间名称 进行一个链接&lt;br&gt;才能达到扩容的目的.&lt;br&gt;感觉这样相当不优雅.像是乱插了N个奇形怪状的U盘在身上&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;研究后发现,&lt;code&gt;Linux&lt;/code&gt;的Swap空间阻断了分区扩容,在磁盘起始点和终点上不连续.&lt;br&gt;所以先右键&lt;code&gt;File System&lt;/code&gt;为&lt;code&gt;extend&lt;/code&gt;的分区,删除之&lt;/p&gt;
+&lt;h3 id=&quot;对原有磁盘空间进行扩容&quot;&gt;&lt;a href=&quot;#对原有磁盘空间进行扩容&quot; class=&quot;headerlink&quot; title=&quot;对原有磁盘空间进行扩容&quot;&gt;&lt;/a&gt;对原有磁盘空间进行扩容&lt;/h3&gt;&lt;p&gt;删除&lt;code&gt;extend&lt;/code&gt;的空间之后,便可以对原有的&lt;code&gt;/dev/sda1&lt;/code&gt;进行扩容.&lt;br&gt;此时右键&lt;code&gt;/dev/sda1&lt;/code&gt;选择&lt;code&gt;resize&lt;/code&gt;,在保证预留出大小相当于分配给虚拟机的内存的空间的情况下,分多点~&lt;br&gt;点击&lt;code&gt;apply&lt;/code&gt;生效&lt;/p&gt;
+&lt;h3 id=&quot;新建extend分区-建立linux-swap空间&quot;&gt;&lt;a href=&quot;#新建extend分区-建立linux-swap空间&quot; class=&quot;headerlink&quot; title=&quot;新建extend分区,建立linux swap空间&quot;&gt;&lt;/a&gt;新建extend分区,建立&lt;code&gt;linux swap&lt;/code&gt;空间&lt;/h3&gt;&lt;p&gt;最后,重新建立&lt;code&gt;linux swap&lt;/code&gt;空间.&lt;br&gt;对着还未分配的空间,新增一个&lt;code&gt;file system&lt;/code&gt;为&lt;code&gt;extended&lt;/code&gt;的扩展分区,&lt;code&gt;apply&lt;/code&gt;之.&lt;br&gt;然后在该分区下新建一个&lt;code&gt;linux-swap&lt;/code&gt;空间.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://img.alicdn.com/tfscom/TB1HPTxLXXXXXXoXVXXXXXXXXXX.png&quot; alt=&quot;扩容后截图&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;一时大意,本以为&lt;code&gt;vmware&lt;/code&gt;下的虚拟机可以
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux &quot;libclntsh.so.11.1 cannot open shared object file no such file or directory&quot;解决方案</title>
+    <link href="http://debug.aquariuslt.com/2015/12/14/nodejs-libclntsh-so-11-1-cannot-open-shared-object-file/"/>
+    <id>http://debug.aquariuslt.com/2015/12/14/nodejs-libclntsh-so-11-1-cannot-open-shared-object-file/</id>
+    <published>2015-12-14T08:48:46.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ubuntu 14.04&lt;/code&gt;&lt;br&gt;&lt;code&gt;node v4.2.3&lt;/code&gt;&lt;br&gt;&lt;code&gt;oracledb v1.4.0&lt;/code&gt;&lt;br&gt;在正常安装好&lt;code&gt;Node.js&lt;/code&gt;和&lt;code&gt;oracledb&lt;/code&gt;,之后,用到oracledb的那一步就开始提示这个错误;&lt;br&gt;重新跑&lt;code&gt;npm install&lt;/code&gt;不能解决问题&lt;/p&gt;
+&lt;h2 id=&quot;RootCause&quot;&gt;&lt;a href=&quot;#RootCause&quot; class=&quot;headerlink&quot; title=&quot;RootCause&quot;&gt;&lt;/a&gt;RootCause&lt;/h2&gt;&lt;p&gt;&lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt;没有设置好.&lt;br&gt;我将OracleInstantClient的安装目录的路径,释放在当前用户的环境变量中.&lt;br&gt;即将&lt;code&gt;export LD_LIBRARY_PATH=XXXX&lt;/code&gt;写在当前user的&lt;code&gt;.bashrc&lt;/code&gt;中&lt;br&gt;导致terminal中启动的时候,读不到LB_LIBRARY_PATH变量.&lt;br&gt;如果运行如下命令,没有设置环境变量的话,可以通过该解决方案解决.&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;locate&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;libclntsh&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.so&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.11&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions&quot;&gt;&lt;/a&gt;Solutions&lt;/h2&gt;&lt;p&gt;将环境变量设置在&lt;code&gt;/etc/profile&lt;/code&gt;中,问题解决.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ubuntu 14.04&lt;/code&gt;&lt;br&gt;&lt;code
+    
+    </summary>
+    
+    
+      <category term="Node.js" scheme="http://debug.aquariuslt.com/tags/Node-js/"/>
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
+    
+      <category term="Ubuntu" scheme="http://debug.aquariuslt.com/tags/Ubuntu/"/>
+    
+      <category term="Oracle" scheme="http://debug.aquariuslt.com/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Debug-with-Hexo</title>
+    <link href="http://debug.aquariuslt.com/2015/10/01/debug-with-hexo/"/>
+    <id>http://debug.aquariuslt.com/2015/10/01/debug-with-hexo/</id>
+    <published>2015-10-01T05:53:47.000Z</published>
+    <updated>2016-04-01T15:44:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Debug-with-Hexo&quot;&gt;&lt;a href=&quot;#Debug-with-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Debug with Hexo&quot;&gt;&lt;/a&gt;Debug with Hexo&lt;/h2&gt;&lt;p&gt;Debug Note of Hexo Blog.&lt;br&gt;为了频繁防止低质量的debug日志放在&lt;a href=&quot;http://blog.aquariuslt.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;正式博客&lt;/a&gt;上.&lt;br&gt;特意设置了这样一个专门防止debug系列的site.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Debug-with-Hexo&quot;&gt;&lt;a href=&quot;#Debug-with-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Debug with Hexo&quot;&gt;&lt;/a&gt;Debug with Hexo&lt;/h2&gt;&lt;p&gt;Debug Note of Hexo
+    
+    </summary>
+    
+    
+      <category term="Blog" scheme="http://debug.aquariuslt.com/tags/Blog/"/>
+    
+  </entry>
+  
+</feed>
