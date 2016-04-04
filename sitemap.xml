@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://debug.aquariuslt.com/2016/04/02/javascript-document-create-element-xhr/</loc>
+    <loc>http://debug.aquariuslt.com/2016/04/04/angular-dynamic-title-using-factory/</loc>
     
-    <lastmod>2016-04-02T09:48:46.000Z</lastmod>
+    <lastmod>2016-04-04T06:06:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://debug.aquariuslt.com/tags/index.html</loc>
+    <loc>http://debug.aquariuslt.com/2016/04/02/javascript-document-create-element-xhr/</loc>
     
-    <lastmod>2016-04-01T15:44:31.000Z</lastmod>
+    <lastmod>2016-04-02T09:48:46.000Z</lastmod>
     
   </url>
   
@@ -23,14 +23,21 @@
   </url>
   
   <url>
-    <loc>http://debug.aquariuslt.com/2016/01/15/mac-idea-15-remove-bundled-jdk/</loc>
+    <loc>http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/</loc>
     
     <lastmod>2016-04-01T15:44:31.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/</loc>
+    <loc>http://debug.aquariuslt.com/tags/index.html</loc>
+    
+    <lastmod>2016-04-01T15:44:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://debug.aquariuslt.com/2016/01/15/mac-idea-15-remove-bundled-jdk/</loc>
     
     <lastmod>2016-04-01T15:44:31.000Z</lastmod>
     
