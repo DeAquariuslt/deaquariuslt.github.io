@@ -47,9 +47,9 @@
     </summary>
     
     
-      <category term="AngularJS" scheme="http://debug.aquariuslt.com/tags/AngularJS/"/>
-    
       <category term="JavaScript" scheme="http://debug.aquariuslt.com/tags/JavaScript/"/>
+    
+      <category term="AngularJS" scheme="http://debug.aquariuslt.com/tags/AngularJS/"/>
     
   </entry>
   
@@ -132,11 +132,11 @@
     </summary>
     
     
-      <category term="AngularJS" scheme="http://debug.aquariuslt.com/tags/AngularJS/"/>
-    
       <category term="JavaScript" scheme="http://debug.aquariuslt.com/tags/JavaScript/"/>
     
       <category term="CSS" scheme="http://debug.aquariuslt.com/tags/CSS/"/>
+    
+      <category term="AngularJS" scheme="http://debug.aquariuslt.com/tags/AngularJS/"/>
     
   </entry>
   
@@ -268,9 +268,9 @@
     </summary>
     
     
-      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
-    
       <category term="Ubuntu" scheme="http://debug.aquariuslt.com/tags/Ubuntu/"/>
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
     
   </entry>
   
@@ -337,9 +337,9 @@
     
       <category term="Node.js" scheme="http://debug.aquariuslt.com/tags/Node-js/"/>
     
-      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
-    
       <category term="Ubuntu" scheme="http://debug.aquariuslt.com/tags/Ubuntu/"/>
+    
+      <category term="Linux" scheme="http://debug.aquariuslt.com/tags/Linux/"/>
     
       <category term="Oracle" scheme="http://debug.aquariuslt.com/tags/Oracle/"/>
     
